@@ -2,8 +2,7 @@
 <html>
 <head>
 
-	<script src="jquery-3.6.0"></script>
-	<script type="text/javascript" src="todo-script.js"></script>
+	<script src="jquery-3.6.0.js"></script>
 	<link rel="stylesheet" href="styles.css" type="text/css">
 
 </head>
@@ -12,7 +11,8 @@
 	<div class="todo-content" align="center">
 		<h1 style="text-align:center">TO DO List</h1>
 		<div class="todo-input">
-		<input type="text" Placeholder="Enter Something Here.." id="task">
+		<textarea Placeholder="Title" id="title"></textarea>
+		<textarea Placeholder="Description" id="task"></textarea>
 		<input type="number" Placeholder="Priority" min="1" max="5" id="priority">
 		<button class="add-todo">Add</button>
 	</div>

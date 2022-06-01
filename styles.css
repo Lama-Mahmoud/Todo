@@ -9,9 +9,18 @@ textarea{
 	font-family:Helvetica;
 }
 
+.container{
+	display:flex;
+}
+
+.todo-content,.todo-content{
+	flex-basis:50%;
+}
+
+
 #priority,#title{
     padding: 1%;
-	width:15%;
+	width:100%;
 	height:10%;
 	margin-right:0;
 	margin-left:0;
@@ -22,7 +31,7 @@ textarea{
 #task{
     padding: 1%;
 	margin-right:0;
-	width:45%;
+	width:100%;
 	height:10%;
 	font-size:1em;
 	border:none;

@@ -46,6 +46,7 @@ textarea{
 .add-todo{
 	border-radius:15px;
     padding: 1%;
+	width:30%;
 	background-color:#1B3864;
 	color:white;
 	border:none;

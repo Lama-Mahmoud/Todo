@@ -1,4 +1,40 @@
 body{
 	font-family:Helvetica;
 	background-color:#5B7D9C;
+	font-size:2em;
+}
+
+#priority{
+    padding: 1%;
+	width:15%;
+	margin-right:0;
+	margin-left:0;
+	font-size:1em;
+	border:none;
+}
+
+#task{
+    padding: 1%;
+	margin-right:0;
+	width:45%;
+	font-size:1em;
+	border:none;
+}
+
+#task:focus,#priority:focus{
+	background-color:lightgray;
+	border:none;
+	outline:unset;
+}
+
+.add-todo{
+    padding: 1%;
+	background-color:#1B3864;
+	color:white;
+	border:none;
+	font-size:1em;
+}
+
+h1{
+	color:#1B3864;
 }

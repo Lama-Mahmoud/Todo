@@ -65,7 +65,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #1B3864;
+  background-color: #5B7D9C;
 }
 
 li {
@@ -78,8 +78,11 @@ li button {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border:none;
+  margin:0;
+  background-color:#1B3864
 }
 
 li button:hover {
-  background-color: #5B7D9C;
+  background-color: #ccc;
 }

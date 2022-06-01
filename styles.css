@@ -20,7 +20,7 @@ textarea{
 
 
 #priority,#title{
-	border-radius:5%;
+	border-radius:15px;
     padding: 1%;
 	width:90%;
 	height:10%;
@@ -34,7 +34,7 @@ textarea{
 	height:10%;
 	font-size:1em;
 	border:none;
-	border-radius:5%;
+	border-radius:15px;
 }
 
 #task:focus,#priority:focus,#title:focus{
@@ -44,12 +44,13 @@ textarea{
 }
 
 .add-todo{
+	border-radius:15px;
     padding: 1%;
 	background-color:#1B3864;
 	color:white;
 	border:none;
 	font-size:1em;
-	margin-top:7%;
+	margin-top:8%;
 }
 
 h1, label{

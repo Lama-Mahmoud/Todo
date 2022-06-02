@@ -8,10 +8,34 @@ class task {
   }
 }
 
+function addEventListener()
+{
+	
+	// adding event listener to the x button
+	$(".close").click(function(){
+		console.log("element deleted");
+		id=$(this).parent().attr("id");
+		localStorage.removeItem(id);
+		$(this).parent().remove();
+		console.log("element deleted");
+	});
+	
+	$(".done").click(function(){
+		id=$(this).parent().attr("id");
+		var todo = JSON.parse(localStorage.getItem(id));
+		todo.done=1;
+		localStorage.setItem(id,JSON.stringify(todo));
+		$(this).parent().remove();
+		console.log("task done");
+	});
+}
+
 function getTasks(isDone){
 	
 	$("#myList").empty();
 	
+	
+	// arrange from newest to oldest
 	if (isDone==-1)
 	{
 		for(i=0;i<localStorage.length;i++)
@@ -30,6 +54,9 @@ function getTasks(isDone){
 	}
 	}
 	else{
+		
+		
+	// arrange from newest to oldest based on done 1 or not done 0
 	for(i=0;i<localStorage.length;i++)
 	{
 		id = localStorage.key(i);
@@ -39,10 +66,10 @@ function getTasks(isDone){
 		priority=todo.priority;
 		done=todo.done;
 		
-		if(done==isDone)
+		if(done===isDone){
 			content="<li id="+id+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
 		
-		$("#myList").append(content);
+		$("#myList").append(content);}
 		
 	}
 	
@@ -50,6 +77,9 @@ function getTasks(isDone){
 	
 	
 	
+	// adding event listener to the x 
+	if(isDone==1)
+	{
 	$(".close").click(function(){
 		console.log("element deleted");
 		id=$(this).parent().attr("id");
@@ -58,9 +88,27 @@ function getTasks(isDone){
 		console.log("element deleted");
 	});
 	
+	$(".done").click(function(){
+		id=$(this).parent().attr("id");
+		var todo = JSON.parse(localStorage.getItem(id));
+		todo.done=0;
+		localStorage.setItem(id,JSON.stringify(todo));
+		$(this).parent().remove();
+		console.log("task done");
+	});
+	}
+	
+	else{
+		addEventListener();
+	}
+	
 }
 
 function getpriority(){
+	
+	
+	
+	// arrange from newest to oldest and by priority from 5 to 1
 	
 	$("#myList").empty();
 	
@@ -74,7 +122,7 @@ function getpriority(){
 			priority=todo.priority;
 			done=todo.done;
 		
-			if(priority===j)
+			if(priority===j && done===0)
 			{
 				console.log(id);
 				content="<li id="+id+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
@@ -86,14 +134,7 @@ function getpriority(){
 	}
 	
 	
-	
-	$(".close").click(function(){
-		console.log("element deleted");
-		id=$(this).parent().attr("id");
-		localStorage.removeItem(id);
-		$(this).parent().remove();
-		console.log("element deleted");
-	});
+		addEventListener();
 	
 }
 
@@ -107,6 +148,10 @@ $(document).ready(function(){
 	
 	$("#notdone").click(function(){
 			getTasks(0);
+	});
+	
+	$("#done").click(function(){
+			getTasks(1);
 	});
 	
 	$("#add-todo").click(function(){
@@ -150,5 +195,13 @@ $(document).ready(function(){
 	});
 	
 	
+	$(".done").click(function(){
+		id=$(this).parent().attr("id");
+		var todo = JSON.parse(localStorage.getItem(id));
+		todo.done=1;
+		localStorage.setItem(id,JSON.stringify(todo));
+		$(this).parent().remove();
+		console.log("task done");
+	});
 	
 });

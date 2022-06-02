@@ -68,13 +68,13 @@ textarea{
 	outline:none;
 }
 
-h1, label{
+h1, label,h2{
 	color:#1B3864;
 	margin-bottom:1%;
 	margin-top:1%;
 }
 
-h1{
+h1,h2{
 	margin-top:0;
 }
 

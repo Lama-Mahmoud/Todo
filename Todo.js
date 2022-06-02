@@ -20,11 +20,14 @@ $("#add-todo").click(function(){
 		alert("priority between 1 and 5");
 		return
 	}
-	
 	value=[title,description,priority,done,time];
-	localStorage.setItem("testKey", JSON.stringify(value));
-	var test = JSON.parse(localStorage.getItem("testKey"));
-	console.log(test);
+	localStorage.setItem("1", JSON.stringify(value));
+	var test = JSON.parse(localStorage.getItem("1"));
+	
+	var itemKey = localStorage.key(1);
+	console.log(itemKey);
+	var values = localStorage.getItem(itemKey);
+	console.log(values);
 	
 });
 });

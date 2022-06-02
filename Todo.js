@@ -8,7 +8,8 @@ class task {
   }
 }
 $(document).ready(function(){
-
+	
+	
 	$("#add-todo").click(function(){
 		time= new Date($.now());
 		priority=$("#priority").val();
@@ -37,4 +38,12 @@ $(document).ready(function(){
 		localStorage.setItem(key,JSON.stringify(todo));
 	
 	});
+	
+	$(".close").click(function(){
+		$(this).parent().remove();
+		alert("The paragraph was clicked.");
+		console.log("element deleted");
+	});
+	
+	
 });

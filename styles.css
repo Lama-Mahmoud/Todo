@@ -80,7 +80,7 @@ h1{
 
 ul {
   list-style-type: none;
-  margin: 0;
+  margin: 3%;
   padding: 0;
   overflow: hidden;
   background-color: #5B7D9C;
@@ -109,7 +109,7 @@ li button:hover , #add-todo:active{
 
 #myList{
   background: #7C99BD;
-  margin:4%;
+  margin:3%;
   color: white;
 }
 
@@ -118,17 +118,46 @@ li button:hover , #add-todo:active{
 }
 
 #myList li{
+  display:flex;
   cursor: pointer;
-  position: relative;
-  padding:3%;
   background: #7C99BD;
   font-size: 1.2em;
-  transition: 0.2s;
   width:100%;
-
-  /* make the list items unselectable */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  border-bottom:1px solid #D5DAD1;
 }
+
+p{
+	flex-basis:80%;
+	width:80%;
+}
+.close{
+	margin:0;
+	flex-basis:10%;
+	width:10%;
+	font-size:1.2em;
+	text-align:center;
+	background-color:#7C99BD;
+}
+
+
+.done{
+	margin:0;
+	flex-basis:10%;
+	width:10%;
+	font-size:1.2em;
+	text-align:center;
+	background-color:#7C99BD;
+}
+
+.title{
+	width:20%;
+}
+
+.priority{
+	width:10%;
+}
+
+.description{
+	width:60%;
+}
+

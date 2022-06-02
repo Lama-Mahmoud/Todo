@@ -143,7 +143,7 @@ $(document).ready(function(){
 	
 	getTasks(-1);
 	
-	
+	//  NAV bar listeners
 	$("#byPrio").click(getpriority);
 	
 	$("#notdone").click(function(){
@@ -159,6 +159,9 @@ $(document).ready(function(){
 			getTasks(-1);
 	});
 	
+	
+	
+	//adding a new task
 	$("#add-todo").click(function(){
 		
 		
@@ -176,7 +179,7 @@ $(document).ready(function(){
 		done=0;
 		priority=parseInt(priority);
 		
-		
+		// checking datat
 		if(priority>5 || priority<1 )
 		{
 			alert("priority between 1 and 5");
@@ -188,6 +191,7 @@ $(document).ready(function(){
 			return
 		}
 		
+		// loading data to the objectt constructor
 		todo=new task(title,description,priority,done,time);
 		
 		i=localStorage.length;
@@ -195,7 +199,9 @@ $(document).ready(function(){
 		key="t"+i;
 		localStorage.setItem(key,JSON.stringify(todo));
 		
-		getTasks(-1);
+		// updating list
+		content="<li id="+key+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
+		$("#myList").prepend(content);
 	
 	});
 	

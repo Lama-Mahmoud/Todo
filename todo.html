@@ -3,13 +3,14 @@
 <head>
 
 	<script src="jquery-3.6.0.js"></script>
+	<script src="Todo.js"></script>
 	<link rel="stylesheet" href="styles.css" type="text/css">
 
 </head>
 <body>
 <div class="container">
 	<div class="todo-content" align="center">
-		<h1 style="text-align:center">TO DO List</h1>
+		<h1 style="text-align:center">Append task</h1>
 		<div class="todo-input">
 			<label for="title"><b>Title</b></label><br>
 			<textarea Placeholder="Title" id="title"></textarea><br>
@@ -17,7 +18,7 @@
 			<textarea Placeholder="Description" id="task"></textarea><br>
 			<label for="Priority"><b>Priority</b></label><br>
 			<input type="number" Placeholder="Priority" min="1" max="5" id="priority"><br>
-			<button class="add-todo">Add</button>
+			<button id="add-todo">Add</button>
 		</div>
 	</div>
 	

@@ -13,8 +13,14 @@ textarea{
 	display:flex;
 }
 
-.todo-content,.todo-content{
-	flex-basis:50%;
+.todo-content{
+	flex-basis:40%;
+	padding:2%;
+}
+
+
+.todo-list{
+	flex-basis:60%;
 	padding:2%;
 }
 
@@ -43,7 +49,7 @@ textarea{
 	outline:unset;
 }
 
-.add-todo{
+#add-todo{
 	border-radius:15px;
     padding: 1%;
 	width:30%;

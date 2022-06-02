@@ -135,6 +135,8 @@ function getpriority(){
 	
 	
 		addEventListener();
+			$("#status").empty();
+			$("#status").append("ALL By Time from newest to oldest BY PRIORITY");
 	
 }
 
@@ -148,15 +150,21 @@ $(document).ready(function(){
 	
 	$("#notdone").click(function(){
 			getTasks(0);
+			$("#status").empty();
+			$("#status").append("ALL By Time from newest to oldest NOT DONE");
 	});
 	
 	$("#done").click(function(){
 			getTasks(1);
+			$("#status").empty();
+			$("#status").append("ALL By Time from newest to oldest DONE");
 	});
 	
 	
 	$("#Normal").click(function(){
 			getTasks(-1);
+			$("#status").empty();
+			$("#status").append("ALL By Time from newest to oldest");
 	});
 	
 	
@@ -196,12 +204,41 @@ $(document).ready(function(){
 		
 		i=localStorage.length;
 		console.log(i);
+		
+		//prevent replacing
+		if(i!=0)
+		{
+			id = localStorage.key(0);
+			console.log(id);
+			sub=id.substr(1,id.length);
+			console.log(id);
+			i=parseInt(sub)+1;
+			console.log(i);
+		}
 		key="t"+i;
 		localStorage.setItem(key,JSON.stringify(todo));
 		
 		// updating list
 		content="<li id="+key+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
 		$("#myList").prepend(content);
+		
+		// add event listener
+		$(".close").click(function(){
+			console.log("element deleted");
+			id=$(this).parent().attr("id");
+			localStorage.removeItem(id);
+			$(this).parent().remove();
+			console.log("element deleted");
+		});
+		
+		$(".done").click(function(){
+			id=$(this).parent().attr("id");
+			var todo = JSON.parse(localStorage.getItem(id));
+			todo.done=0;
+			localStorage.setItem(id,JSON.stringify(todo));
+			$(this).parent().remove();
+			console.log("task done");
+		});
 	
 	});
 	

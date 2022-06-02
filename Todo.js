@@ -1,38 +1,40 @@
-
+class task {
+  constructor(title, description,priority,done,time) {
+    this.title = title;
+    this.description = description;
+	this.priority=priority;
+	this.done=done;
+	this.time=time;
+  }
+}
 $(document).ready(function(){
-$("#add-todo").click(function(){
-	time= new Date($.now());
-	priority=$("#priority").val();
-	title=$("#title").val();
-	description=$("#task").val();
-	done=0;
-	priority=parseInt(priority);
+
+	$("#add-todo").click(function(){
+		time= new Date($.now());
+		priority=$("#priority").val();
+		title=$("#title").val();
+		description=$("#task").val();
+		done=0;
+		priority=parseInt(priority);
+		
+		
+		if(priority>5 || priority<1 )
+		{
+			alert("priority between 1 and 5");
+			return
+		}
+		if(title==0 || title.length==0 ||description.length==0 )
+		{
+			alert("all feilds must be filled");
+			return
+		}
+		
+		todo=new task(title,description,priority,done,time);
+		
+		i=localStorage.length;
+		console.log(i);
+		key="t"+i;
+		localStorage.setItem(key,JSON.stringify(todo));
 	
-	
-	console.log(time);
-	console.log(priority);
-	console.log(title);
-	console.log(description);
-	
-	
-	if(priority>5 || priority<1 )
-	{
-		alert("priority between 1 and 5");
-		return
-	}
-	if(title==0 || title.length==0 ||description.length==0 )
-	{
-		return
-	}
-	
-	value=[title,description,priority,done,time];
-	localStorage.setItem("1", JSON.stringify(value));
-	var test = JSON.parse(localStorage.getItem("1"));
-	
-	var itemKey = localStorage.key(0);
-	console.log(itemKey);
-	var values = localStorage.getItem(itemKey);
-	console.log(values);
-	
-});
+	});
 });

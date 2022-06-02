@@ -154,6 +154,11 @@ $(document).ready(function(){
 			getTasks(1);
 	});
 	
+	
+	$("#Normal").click(function(){
+			getTasks(-1);
+	});
+	
 	$("#add-todo").click(function(){
 		
 		

@@ -10,6 +10,22 @@ class task {
 $(document).ready(function(){
 	
 	
+	for(i=0;i<localStorage.length;i++)
+	{
+		id = localStorage.key(i);
+		var todo = JSON.parse(localStorage.getItem(id));
+		title=todo.title;
+		description=todo.description;
+		priority=todo.priority;
+		done=todo.done;
+		
+		content="<li id="+id+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
+		
+		$("#myList").append(content);
+		
+	}
+	
+	
 	$("#add-todo").click(function(){
 		time= new Date($.now());
 		priority=$("#priority").val();
@@ -40,8 +56,9 @@ $(document).ready(function(){
 	});
 	
 	$(".close").click(function(){
+		id=$(this).parent().attr("id");
+		localStorage.removeItem(id);
 		$(this).parent().remove();
-		alert("The paragraph was clicked.");
 		console.log("element deleted");
 	});
 	

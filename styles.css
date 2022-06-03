@@ -76,6 +76,11 @@ h1, label,h2{
 
 h1,h2{
 	margin-top:0;
+	margin-left:3%;
+}
+
+h2{
+	margin-right:3%;
 }
 
 ul {
@@ -159,5 +164,31 @@ li button:hover , #add-todo:active{
 .description{
 	width:55%;
 	flex-basis:55%;
+}
+
+
+#search{
+	background-color:white;
+	font-size:1.4em;
+	border:none;
+	outline:none;
+	flex-basis:85%;
+}
+
+
+#search:focus{
+	background-color:lightgray;
+}
+
+
+#btnSearch{
+	font-size:1.3em;
+	border:none;
+	outline:none;
+	flex-basis:10%;
+}
+.search{
+	display:flex;
+	padding:3%;
 }
 

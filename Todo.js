@@ -252,4 +252,37 @@ $(document).ready(function(){
 		console.log("task done");
 	});
 	
+	
+	
+	
+	
+	// search
+	$("#btnSearch").click(function(){
+		search=$("#search").val();
+		$("#myList").empty();
+		if(search!="")
+		{
+			for(i=0;i<localStorage.length;i++)
+			{
+				id = localStorage.key(i);
+				var todo = JSON.parse(localStorage.getItem(id));
+				title=todo.title;
+				description=todo.description;
+				priority=todo.priority;
+				done=todo.done;
+				
+				if(title.includes(search) || description.includes(search))
+				{
+					content="<li id="+id+"><button class='done'>&#10004;</button><p class='title'>"+title+"</p><p class='description'>"+description+"</p><p class='priority'>"+priority+"</p><button class='close'>&#215;</button></li>";
+					$("#myList").append(content);
+				}
+				
+			}
+			
+		}
+		else
+			getTasks(-1);
+	});
+	
+	
 });
